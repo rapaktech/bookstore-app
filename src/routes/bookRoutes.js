@@ -4,12 +4,7 @@ const router = express.Router();
 const BookCtrl = require('../controllers/bookControllers');
 
 // Import middleware
-
 const { authenticateUser, checkIfAdmin } = require('../middleware/auth');
-
-
-// GET request to / to fetch all books
-router.get('/', BookCtrl.fetchAllBooks);
 
 
 // POST request to /books to create a new book

@@ -14,6 +14,7 @@ const port = process.env.PORT;
 
 // Import Middleware
 app.use(express.json());
+app.use('/', express.static(__dirname + '/views'));
 
 // Setup Mongoose and database connection
 dbSetup();
