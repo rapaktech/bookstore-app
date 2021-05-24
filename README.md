@@ -1,13 +1,25 @@
 # Book Store Application
 
-**FEATURES**
+This is the backend for a fictional bookstore application.
 
-* Create Books
+There are two types of users: the admin user and the regular user.
 
-* Fetch Books
 
-* Update Books
+# *The 'admin' user has the following privileges:*
 
-* Delete Books
+* To add a new book to the database.
 
-* Search for books
+* To view all books in the database.
+
+* To fetch a particular book in the database.
+
+* To update the book information for a book in the database.
+
+* To delete a book from the database.
+
+
+# *The 'regular' user has the following privileges:*
+
+* To view all books in the database.
+
+* To fetch a particular book in the database.

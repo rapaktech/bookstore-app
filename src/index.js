@@ -19,7 +19,7 @@ app.use(express.json());
 dbSetup();
 
 // Setup Connection Routes
-app.use('/auth', authRoutes);
+app.use(authRoutes);
 app.use(bookRoutes);
 
 // Seeders

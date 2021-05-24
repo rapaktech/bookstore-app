@@ -21,11 +21,11 @@ router.get('/books/:id', authenticateUser, BookCtrl.fetchSingleBook);
 
 
 // PUT request to /books/:id to update a single book
-router.put('/books/:id', authenticateUser, BookCtrl.updateSingleBook);
+router.put('/books/:id', authenticateUser, checkIfAdmin, BookCtrl.updateSingleBook);
 
 
 // DELETE request to /books/:id to delete a single book
-router.delete('/books/:id', BookCtrl.deleteSingleBook);
+router.delete('/books/:id', checkIfAdmin, BookCtrl.deleteSingleBook);
 
 
 module.exports = router;

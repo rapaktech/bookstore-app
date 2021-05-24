@@ -23,7 +23,6 @@ exports.registerNewUser = (req, res) => {
             if (err) return res.status(500).json({ err });
 
             // hash user password
-
             bcrypt.genSalt(10, (err, salt) => {
                 if (err) return res.status(500).json({ err });
                 bcrypt.hash(req.body.password, salt, (err, hashedPassword) => {
