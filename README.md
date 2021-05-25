@@ -49,7 +49,7 @@ There are two types of users: the admin user and the regular user.
 to https://fast-crag-44109.herokuapp.com/login . Make sure you keep your token, as it would be used to complete your other interactions with the database.
 
 
-* To see a comprehensive list of all the books in the database, send a JSON GET request to https://fast-crag-44109.herokuapp.com/books and include your token as part of your request in the format "Bearer 'token' 
+* To see a comprehensive list of all the books in the database, send a JSON GET request to https://fast-crag-44109.herokuapp.com/books and include your token as part of your request in the format "Bearer 'token' .
 
 
 * To fetch a single book from the list by id, send a JSON GET request to https://fast-crag-44109.herokuapp.com/books/:id and include your token as part of your request in the format "Bearer 'token' ". You can get the id from the FETCH ALL BOOKS request.
