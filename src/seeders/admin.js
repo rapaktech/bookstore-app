@@ -1,6 +1,8 @@
+const dotenv = require('dotenv').config();
+
 const User = require('../models/users');
 const bcrypt = require('bcryptjs');
-let password = 'admin123';
+let password = process.env.ADMIN_PASSWORD;
 
 exports.seedAdmin = () => {
 
