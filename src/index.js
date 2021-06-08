@@ -2,8 +2,7 @@
 const express = require('express');
 const app = express();
 const dbSetup = require('./database/setup');
-const dotenv = require('dotenv');
-dotenv.config();
+const dotenv = require('dotenv').config();
 
 // Require Routes
 const bookRoutes = require('./routes/bookRoutes');

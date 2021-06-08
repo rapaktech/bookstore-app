@@ -15,29 +15,27 @@ exports.registerNewUser = (req, res) => {
                 .json({ message:"A user with this username already exists, please try another username"});
         }
 
-        User.create({
+        const newUser = new User({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             username: req.body.username
-        }, (err, newUser) => {
+        });
+
+        // hash user password
+        bcrypt.genSalt(10, (err, salt) => {
             if (err) return res.status(500).json({ err });
-
-            // hash user password
-            bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(req.body.password, salt, (err, hashedPassword) => {
                 if (err) return res.status(500).json({ err });
-                bcrypt.hash(req.body.password, salt, (err, hashedPassword) => {
-                    if (err) return res.status(500).json({ err });
 
-                    // save password to user data
-                    newUser.password = hashedPassword;
-                    newUser.save((err, savedUser) => {
-                        if (err) return res.status(500).json({ err });
-                        let token = createToken(savedUser);
-                        return res.status(200).json({ message: "Registration is successful", token });
-                    })
-                })
-            })
-        })
+                // save password to user data
+                newUser.password = hashedPassword;
+                newUser.save((err, savedUser) => {
+                    if (err) return res.status(500).json({ err });
+                    let token = createToken(savedUser);
+                    return res.status(200).json({ message: "Registration is successful", token });
+                });
+            });
+        });
     });
 };
 
